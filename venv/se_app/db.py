@@ -6,7 +6,6 @@ from sqlalchemy import (
     Integer, String, DateTime,
     select, join
 )
-#import sqlalchemy as sa
 
 __all__ = ['se_query', 'answer', 'query_answer', 'count_queries']
 

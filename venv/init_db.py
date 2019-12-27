@@ -39,4 +39,4 @@ if __name__ == '__main__':
     engine = create_engine(db_url)
     delete_tables(engine)
     create_tables(engine)
-    #sample_data(engine)
+    sample_data(engine)
