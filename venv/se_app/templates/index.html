@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% set title = "Main" %}
+
+{% block content %}
+
+
+<form class="limit" action="{{ baseurl }}" method="get">
+    <label>limit records of page: </label>
+    <select name="page_limit" onchange="this.form.submit()">
+        <option value=5 {% if page_cfg.limit == 5 %} selected {% endif %}>5</option>
+        <option value=50 {% if page_cfg.limit == 50 %} selected {% endif %}>50</option>
+        <option value=100 {% if page_cfg.limit == 100 %} selected {% endif %}>100</option>
+    </select>
+</form>
+
+{% if queries %}
+
+    <nav><ul class="pagination">
+    {% for p in range(1, page_range+1) %}
+      {% if p == page_number %}
+      <li class="active">
+      {% else %}
+      <li>
+      {% endif %}
+        <a href="{{ baseurl }}?&page={{ p }}">{{ p }}</a>
+      </li>
+    {% endfor %}
+    </ul></nav>
+
+{% endif %}
+
+<a href="/poll">New search request</a>
+
+
+{% if queries %}
+
+    <table>
+        <caption></caption>
+
+        <tr><th> Date </th><th> Search query </th><th> Found topics </th> </tr>
+
+        {% for q in queries %}
+
+            <tr>
+                <td>{{ q.date }}</td>
+                <td><a href="/{{q.id}}/answers">{{ q.query_text }}</a></td>
+                <td>score</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+
+{% else %}
+
+    <p>No queries are available.</p>
+
+{% endif %}
+
+
+{% endblock %}

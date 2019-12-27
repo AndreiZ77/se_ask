@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% set title = "StackExchange Poll" %}
+
+{% block content %}
+
+<form action="{{ baseurl }}" method="get">
+    <input name="search_text" type="text" placeholder="search text" autofocus/>
+    <button type="submit">find</button>
+    <label>limit records of page: </label>
+    <select name="page_limit" onchange="this.form.submit()">
+        <option value=5 {% if page_cfg.limit == 5 %} selected {% endif %}>5</option>
+        <option value=50 {% if page_cfg.limit == 50 %} selected {% endif %}>50</option>
+        <option value=100 {% if page_cfg.limit == 100 %} selected {% endif %}>100</option>
+    </select>
+</form>
+
+<a href="/">Main</a>
+
+{% endblock %}

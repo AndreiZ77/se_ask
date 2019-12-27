@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% set title = "Main" %}
+
+{% block content %}
+
+{% if queries %}
+
+    {% set ns=namespace(qid = 0) %}
+    <table>
+        <caption>test data table</caption>
+        {% for q in queries %}
+            {% if q.q_id != ns.qid %}
+                <tr><th>{{ q.q_date.strftime('%d.%m.%Y %H:%M:%S') }}</th>
+                    <th>{{ q.q_id }}</th>
+                    <th colspan="2" >{{ q.q_text }}</th></tr>
+                <tr>
+                    <td>{{ q.a_date }}</td>
+                    <td>{{ q.a_id }}</td>
+                    <td><a href="{{ q.a_link }}">{{ q.a_header }}</a></td>
+                    <td>score: {{q.a_score}}</td>
+                </tr>
+                {% set ns.qid = q.q_id %}
+            {% else %}
+                <tr>
+                    <td>{{ q.a_date }}</td>
+                    <td>{{ q.a_id }}</td>
+                    <td><a href="{{ q.a_link }}">{{ q.a_header }}</a></td>
+                    <td>score: {{q.a_score}}</td>
+                </tr>
+            {% endif %}
+
+        {% endfor %}
+    </table>
+
+{% else %}
+    <p>No queries are available.</p>
+{% endif %}
+
+{% endblock %}

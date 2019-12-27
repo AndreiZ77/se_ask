@@ -1,0 +1,21 @@
+
+<form class="limit" action="{{ baseurl }}" method="get">
+    <label>limit records of page: </label>
+    <select name="page_limit" onchange="this.form.submit()" class="browser-default custom-select">
+        <option value=2 {% if page_cfg.limit == 2 %} selected {% endif %}>2</option>
+        <option value=50 {% if page_cfg.limit == 50 %} selected {% endif %}>50</option>
+        <option value=100 {% if page_cfg.limit == 100 %} selected {% endif %}>100</option>
+    </select>
+</form>
+
+<nav><ul class="pagination">
+{% for p in page_range %}
+  {% if p == page_number %}
+  <li class="active">
+  {% else %}
+  <li>
+  {% endif %}
+    <a href="{{ baseurl }}?&page={{ p }}">{{ p }}</a>
+  </li>
+{% endfor %}
+</ul></nav>
