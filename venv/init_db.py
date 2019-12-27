@@ -20,10 +20,14 @@ def sample_data(engine):
         {'query_text': 'java', 'date': '2019-10-06 15:17:49.629+02'}
     ])
     conn.execute(answer.insert(), [
-        {'header': 'Learn Numerical methods in Python', 'date': '2017-09-21 17:17:49.629+02', 'score': 0},
-        {'header': 'Physical simulation in python', 'date': '2014-09-30 17:17:49.629+02', 'score': 2},
-        {'header': 'Installing sympy package in python', 'date': '2019-09-29 17:17:49.629+02', 'score': 1},
-        {'header': 'Java library for SDP', 'date': '2011-10-27 14:17:49.629+02', 'score': 1}
+        {'header': 'Learn Numerical methods in Python', 'date': '2017-09-21 17:17:49.629+02',
+         'link': 'https://math.stackexchange.com/questions/2439070/learn-numerical-methods-in-python', 'score': 0},
+        {'header': 'Physical simulation in python', 'date': '2014-09-30 17:17:49.629+02',
+         'link': 'https://math.stackexchange.com/questions/1626028/functional-difference-between-dtotal-and-partial/1626053?r=SearchResults&s=3|9.1567#1626053', 'score': 2},
+        {'header': 'Installing sympy package in python', 'date': '2019-09-29 17:17:49.629+02',
+         'link': 'https://stackoverflow.com/questions/54301925/how-to-install-sympy-package-in-python', 'score': 1},
+        {'header': 'Java library for SDP', 'date': '2011-10-27 14:17:49.629+02',
+         'link': 'https://mathoverflow.net/questions/79301/java-library-for-sdp', 'score': 1}
     ])
     conn.execute(query_answer.insert(), [
         {'query_id': 1, 'answer_id': 1},
