@@ -1,0 +1,59 @@
+body {
+    background: white url("images/background.png") no-repeat;
+}
+
+ul.pagination {
+  margin: 0; /* Обнуляем значение отступов */
+  padding: 4px; /* Значение полей */
+  text-align: left;
+}
+ul.pagination li {
+  display: inline; /* Отображать элементы в строку */
+  margin-right: 5px; /* Отступ слева */
+  padding: 2px; /* Поля вокруг текста */
+}
+ul.pagination li a {
+  color: #000;
+}
+ul.pagination li.active {
+   color: #090;
+   border: 1px solid #000; /*Рамка вокруг текста*/
+}
+
+form.limit {
+  text-align: left;
+}
+
+table {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 18px;
+border-spacing: 0;
+border-style: solid;
+border-width: 1px;
+border-color: gray;
+}
+table a {
+    color: #090;
+}
+th {
+background: #bbb;
+color: black;
+padding: 10px 20px;
+}
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: gray;
+}
+th:first-child, td:first-child {
+text-align: left;
+}
+td {
+padding: 10px 20px;
+background: #f0ffdf;
+}
+caption{
+    font-style: left;
+    text-align: center;
+    color: #000;
+}
